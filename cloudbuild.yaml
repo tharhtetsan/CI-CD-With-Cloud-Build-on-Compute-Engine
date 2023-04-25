@@ -1,0 +1,37 @@
+steps:
+
+    # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/prediction-server:$_SERVER', '.']
+
+
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/prediction-server:$_SERVER']
+
+
+ # Create the new instance template
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: create-instance-template
+    args:
+      - compute
+      - instance-templates
+      - create-with-container
+      - cloud-build-instance-template-v1-$_SERVER-$SHORT_SHA
+      - --custom-cpu=1
+      - --custom-memory=2GB
+      - --boot-disk-size=20GB
+      - --region=us-central1
+      - --subnet=telerehab-vpc
+      - --tags=allow-hc-and-proxy,allow-ssh
+      - --container-image
+      - gcr.io/$PROJECT_ID/prediction-server:$_SERVER
+      
+  # Update the managed instance group
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args: ['-c','gcloud compute instance-groups managed rolling-action start-update cloudbuild-mig --version=template=cloud-build-instance-template-v1-$_SERVER-$SHORT_SHA --region=us-central1 --max-unavailable=0'] 
+
+options:
+ logging: CLOUD_LOGGING_ONLY
+
