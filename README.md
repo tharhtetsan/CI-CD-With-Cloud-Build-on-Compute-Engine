@@ -1,6 +1,6 @@
 # CI-CD-With-Cloud-Build-on-Compute-Engine
 
-![](images/today3.PNG)
+![](images/today3.png)
 
 ##### Pre-Requisites:
 
@@ -19,21 +19,19 @@
 
 3. Edit with `cloud build trigger` with `cloudbuild.yaml`.
 
-4. Run the trigger again and check the results.
-
    <img src="images/today5.PNG" style="zoom:50%;" />
 
 
 
-
+4. Run the trigger again and check the results.
 
 
 
 ### Results
 
-![](images/today2.PNG)
+![](images/today2.png)
 
-![](images/today.PNG)
+![](images/today.png)
 
 
 
