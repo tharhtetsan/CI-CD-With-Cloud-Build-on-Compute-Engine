@@ -13,13 +13,13 @@
 
 1. setup `cloud build trigger` with `Create_MIG_cloudbuild.yaml`.
 
-<img src="images/today4.PNG" style="zoom:50%;" />
+<img src="images/today4.png" style="zoom:50%;" />
 
 2. Run the trigger.
 
 3. Edit with `cloud build trigger` with `cloudbuild.yaml`.
 
-   <img src="images/today5.PNG" style="zoom:50%;" />
+   <img src="images/today5.png" style="zoom:50%;" />
 
 
 
