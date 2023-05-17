@@ -39,6 +39,8 @@
 
 #### References:
 
+https://googlecloudcheatsheet.withgoogle.com/
+
 [Koyal Chaudhari's blog post](https://blog.searce.com/ci-cd-with-cloud-build-on-compute-engine-451ccb7b8a1)
 
 [Configuring user-specified service accounts](https://cloud.google.com/build/docs/securing-builds/configure-user-specified-service-accounts)
